@@ -1,0 +1,222 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>Formasi Indonesia</title>
+      <link rel="stylesheet" type="text/css" href="styles.css" />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"
+      />
+    
+
+      <meta charset="utf8" />
+      <meta name="viewport" content="width=device-width" id="viewportMeta" />
+      <script src="script.js"></script>
+    </head>
+
+    <body style="background-color: #c12503">
+      <div id="main-container" class="main-container">
+        <div
+          class="lineup-container"
+          id="lineupContainer"
+          oncontextmenu="return false"
+        >
+          <div class="image-container" id="image-container">
+            <div id="football-pitch" class="football-pitch greenColor">
+              <div class="field lineColorWhite">
+                <div class="tactical vertical1 lineColorWhite"></div>
+                <div class="tactical vertical2 lineColorWhite"></div>
+                <div class="tactical horizontal1 lineColorWhite"></div>
+                <div class="tactical horizontal2 lineColorWhite"></div>
+                <div class="tactical horizontal3 lineColorWhite"></div>
+                <div class="tactical horizontal4 lineColorWhite"></div>
+                <div class="top-penalty-box" id="field">
+                  <div id="starting-1" class="starting-1" draggable="true">
+                    <p style="font-weight: bold; color: #fff">GK</p>
+                    <span id="startingSpan1"></span>
+                    <div class="starter-position">
+                      <p>Ernando</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox1"></div>
+
+                  <div id="starting-2" class="player-starting-2" draggable="true">
+                  <p style="font-weight: bold; color: #fff">DEF</p></span>
+                    <div class="starter-position">
+                      <p>Asnawi</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox2"></div>
+
+                  <div
+                    id="starting-3"
+                    class="player player-starting-3"
+                    draggable="true"
+                  >
+                    <p style="font-weight: bold; color: #fff">DEF</p></span>
+                    <div class="starter-position">
+                      <p>Baggot</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox3"></div>
+
+                  <div
+                    id="starting-4"
+                    class="player player-starting-4"
+                    draggable="true"
+                  >
+                    <p style="font-weight: bold; color: #fff">DEF</p><span id="startingSpan4"></span>
+                    <div class="starter-position">
+                      <p>Amat</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox4"></div>
+
+                  <div
+                    id="starting-5"
+                    class="player player-starting-5"
+                    draggable="true"
+                  >
+                    <p style="font-weight: bold; color: #fff">DEF</p><span id="startingSpan5"></span>
+                    <div class="starter-position">
+                      <p>Arhan</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox5"></div>
+
+                  <div
+                    id="starting-6"
+                    class="player player-starting-6"
+                    draggable="true"
+                  >
+                  <p style="font-weight: bold; color: #fff">MID</p><span id="startingSpan6"></span>
+                    <div class="starter-position">
+                      <p>Vinicius</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox6"></div>
+
+                  <div
+                    id="starting-7"
+                    class="player player-starting-7"
+                    draggable="true"
+                  >
+                  <p style="font-weight: bold; color: #fff">MID</p><span id="startingSpan7"></span>
+                    <div class="starter-position">
+                      <p>Xavi</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox7"></div>
+
+                  <div
+                    id="starting-8"
+                    class="player player-starting-8"
+                    draggable="true"
+                  >
+                  <p style="font-weight: bold; color: #fff">MID</p><span id="startingSpan8"></span>
+                    <div class="starter-position">
+                      <p>Iniesta</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox8"></div>
+
+                  <div
+                    id="starting-9"
+                    class="player player-starting-9"
+                    draggable="true"
+                  >
+                  <p style="font-weight: bold; color: #fff">MID</p><span id="startingSpan9"></span>
+                    <div class="starter-position">
+                      <p>Salah</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox9"></div>
+
+                  <div
+                    id="starting-10"
+                    class="player player-starting-10"
+                    draggable="true"
+                  >
+                    <p style="font-weight: bold; color: #fff">FWD</p><span id="startingSpan10"></span>
+                    <div class="starter-position">
+                      <p>Ronaldo</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox10"></div>
+
+                  <div
+                    id="starting-11"
+                    class="player player-starting-11"
+                    draggable="true"
+                  >
+                  <p style="font-weight: bold; color: #fff">FWD</p><span id="startingSpan11"></span>
+                    <div class="starter-position">
+                      <p>Haaland</p>
+                    </div>
+                  </div>
+                  <div class="player-name-box" id="playerNameBox11"></div>
+
+                  <div class="top-semicircle lineColorWhite"></div>
+                  <div
+                    class="penalty-box top lineColorWhite penaltyBoxGreenTop"
+                  ></div>
+                  <div class="five-yard-box top lineColorWhite"></div>
+                  <div class="penaltyDot top lineColorWhite"></div>
+                </div>
+                <div class="bottom-penalty-box">
+                  <div class="bottom-semicircle lineColorWhite"></div>
+                  <div
+                    class="penalty-box bottom lineColorWhite penaltyBoxGreenBottom"
+                  ></div>
+                  <div class="five-yard-box bottom lineColorWhite"></div>
+                  <div class="penaltyDot bottom lineColorWhite"></div>
+                </div>
+                <div class="corner top-left lineColorWhite"></div>
+                <div class="corner top-right lineColorWhite"></div>
+                <div class="corner bottom-right lineColorWhite"></div>
+                <div class="corner bottom-left lineColorWhite"></div>
+                <div class="center-circle lineColorWhite"></div>
+                <div class="middleLine lineColorWhite"></div>
+                <div class="middleDot lineColorWhite"></div>
+              </div>
+            </div>
+          </div>
+          <div class="button-container">
+            <button id="downloadButton" class="greenButton">Download Json (.json)</button>
+            <button id="screenshotButton" class="greenButton">
+              Download image (.png)
+            </button>
+          </div>
+        </div>
+      </div>
+      
+  <div class="substitutes-container">
+      <div class="substitutes-title">
+          <h2>Substitute Players</h2>
+    
+      <div id="substitute-1" class="player substitute" draggable="true">
+        <p style="font-weight: bold; color: #fff; font-size: medium;">FWD Messi</p>
+      </div>
+      <div id="substitute-2" class="player substitute" draggable="true">
+        <p style="font-weight: bold; color: #fff; font-size: medium;">GK Lev Yhasin</p>
+      </div>
+      <div id="substitute-3" class="player substitute" draggable="true">
+        <p style="font-weight: bold; color: #fff; font-size: medium;">DEF Puyol</p>
+      </div>
+      <div id="substitute-4" class="player substitute" draggable="true">
+        <p style="font-weight: bold; color: #fff; font-size: medium;">MID Kroos</p>
+      </div>
+      <div id="substitute-5" class="player substitute" draggable="true">
+        <p style="font-weight: bold; color: #fff; font-size: medium;">FWD Mbappe</p>
+      </div>
+      </div>
+    </div>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+  </html>

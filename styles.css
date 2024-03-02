@@ -1,0 +1,884 @@
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+#drawingCanvas {
+  display: none;
+  position: absolute;
+  background: transparent;
+  z-index: 132;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensure the body takes up the full height of the viewport */
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.football-pitch.greenColor {
+  background: linear-gradient(
+    to bottom,
+    #4c8527,
+    #4c8527 10%,
+    #486c32 10%,
+    #486c32 20%,
+    #4c8527 20%,
+    #4c8527 30%,
+    #486c32 30%,
+    #486c32 40%,
+    #4c8527 40%,
+    #4c8527 50%,
+    #486c32 50%,
+    #486c32 60%,
+    #4c8527 60%,
+    #4c8527 70%,
+    #486c32 70%,
+    #486c32 80%,
+    #4c8527 80%,
+    #4c8527 90%,
+    #486c32 90%
+  );
+}
+
+.football-pitch {
+  width: 100%;
+  height: 100%;
+  min-height: 752px;
+  min-width: calc(0.75 * 752px);
+  position: relative;
+  z-index: 1;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.lineColorWhite {
+  border-color: #dddddd;
+}
+
+.lineColorGrey {
+  border-color: #808080;
+}
+
+.field,
+.center-circle,
+.top-semicircle,
+.bottom-semicircle {
+  border-width: max(2px, 0.3vh);
+}
+
+.field {
+  height: 88vh;
+  width: calc(0.75 * 88vh);
+  min-height: calc(88 / 98 * 752px);
+  min-width: calc(0.75 * 88 / 98 * 752px);
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-style: solid;
+}
+
+/* Gaya untuk Pemain Starting XI */
+.starting-1 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+
+.starting-1:active {
+  opacity: 0.8;
+}
+
+.starting-1:active i {
+  transform: scale(0.9);
+}
+
+.starter-position p {
+  margin-top: 20px;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+.player-starting-2 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute;
+  top: 65%;
+  left: 85%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-2:active {
+  opacity: 0.8;
+}
+
+.starting-2:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-3 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 75%; /* Ubah ke 50% */
+  left: 35%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-3:active {
+  opacity: 0.8;
+}
+
+.starting-3:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-4 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 75%; /* Ubah ke 50% */
+  left: 65%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-4:active {
+  opacity: 0.8;
+}
+
+.starting-4:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-5 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 65%; /* Ubah ke 50% */
+  right: 78%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-5:active {
+  opacity: 0.8;
+}
+
+.starting-5:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-6 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 40%; /* Ubah ke 50% */
+  right: 78%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-6:active {
+  opacity: 0.8;
+}
+
+.starting-6:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-7 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 40%; /* Ubah ke 50% */
+  right: 55%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-7:active {
+  opacity: 0.8;
+}
+
+.starting-7:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-8 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 40%; /* Ubah ke 50% */
+  left: 65%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-8:active {
+  opacity: 0.8;
+}
+
+.starting-8:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-9 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 40%; /* Ubah ke 50% */
+  left: 85%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-9:active {
+  opacity: 0.8;
+}
+
+.starting-9:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-10 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute;
+  top: 10%;
+  left: 65%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-10:active {
+  opacity: 0.8;
+}
+
+.starting-10:active i {
+  transform: scale(0.9);
+}
+
+.player-starting-11 {
+  width: 40px;
+  height: 40px;
+  background-color: #c12503;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  position: absolute; /* Ganti fixed menjadi absolute */
+  top: 10%; /* Ubah ke 50% */
+  right: 55%; /* Ubah ke 50% */
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  cursor: pointer;
+}
+.starting-11:active {
+  opacity: 0.8;
+}
+
+.starting-11:active i {
+  transform: scale(0.9);
+}
+
+.center-circle {
+  width: calc(20 / 110 * 88vh);
+  height: calc(20 / 110 * 88vh);
+  min-width: calc(20 / 110 * 88 / 98 * 752px);
+  min-height: calc(20 / 110 * 88 / 98 * 752px);
+  border-radius: 50%;
+  border-style: solid;
+  position: absolute;
+}
+
+.top-semicircle,
+.bottom-semicircle {
+  position: absolute;
+  width: calc(20 / 110 * 88vh);
+  height: calc(20 / 110 * 88vh);
+  min-width: calc(20 / 110 * 88 / 98 * 752px);
+  min-height: calc(20 / 110 * 88 / 98 * 752px);
+  border-radius: 50%;
+  clip-path: polygon(0 0, 100% 0, 100% 15%, 50% 50%, 0 15%);
+  border-style: solid;
+}
+
+.bottom-semicircle {
+  bottom: calc(2 / 110 * 100%);
+}
+
+.top-semicircle {
+  top: calc(2 / 110 * 100%);
+  transform: rotate(180deg);
+}
+
+.top-penalty-box {
+  position: relative;
+}
+
+.top-penalty-box,
+.bottom-penalty-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.penalty-box {
+  width: calc(44 / 82.5 * (0.75 * 88vh));
+  height: calc(18 / 110 * 88vh);
+  min-width: calc(44 / 82.5 * 0.75 * 88 / 98 * 752px);
+  min-height: calc(18 / 110 * 88 / 98 * 752px);
+  border-left-width: max(2px, 0.3vh);
+  border-right-width: max(2px, 0.3vh);
+  border-left-style: solid;
+  border-right-style: solid;
+  position: absolute;
+}
+
+.five-yard-box {
+  width: calc(22 / 40 * 34.425vh);
+  height: calc(6 / 18 * 13.77vh);
+  min-width: calc(22 / 40 * 0.1405 * 2.5 * 752px);
+  min-height: calc(6 / 18 * 0.1405 * 752px);
+  border-left-width: max(2px, 0.3vh);
+  border-right-width: max(2px, 0.3vh);
+  border-left-style: solid;
+  border-right-style: solid;
+  position: absolute;
+}
+
+.penaltyBoxGreenTop {
+  background: linear-gradient(
+    to top,
+    #486c32,
+    #486c32 66.666667%,
+    #4c8527 66.666667%
+  );
+}
+
+.penaltyBoxGreenBottom {
+  background: linear-gradient(
+    to bottom,
+    #4c8527,
+    #4c8527 66.666667%,
+    #486c32 66.666667%
+  );
+}
+
+.penalty-box.top,
+.five-yard-box.top {
+  border-bottom-width: max(2px, 0.3vh);
+  border-bottom-style: solid;
+  border-top-width: 0;
+  top: 0.5px;
+}
+
+.penalty-box.bottom,
+.five-yard-box.bottom {
+  border-top-width: max(2px, 0.3vh);
+  border-top-style: solid;
+  border-bottom-width: 0;
+  bottom: 0.5px;
+}
+
+.corner {
+  position: absolute;
+  width: calc(1.5 / 110 * 88vh);
+  height: calc(1.5 / 110 * 88vh);
+  min-width: calc(1.5 / 110 * 88 / 98 * 752px);
+  min-height: calc(1.5 / 110 * 88 / 98 * 752px);
+  border-style: solid;
+}
+
+.corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-top-width: max(2px, 0.3vh);
+  border-left-width: max(2px, 0.3vh);
+  border-bottom-width: 0px;
+  border-right-width: 0px;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 0 0;
+}
+
+.corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-top-width: max(2px, 0.3vh);
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: max(2px, 0.3vh);
+  border-top-right-radius: 100%;
+  border-top-left-radius: 0 0;
+}
+
+.corner.top-right {
+  top: 0;
+  right: 0;
+  border-top-width: 0px;
+  border-left-width: max(2px, 0.3vh);
+  border-bottom-width: max(2px, 0.3vh);
+  border-right-width: 0px;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 0 0;
+}
+
+.corner.top-left {
+  top: 0;
+  left: 0;
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-bottom-width: max(2px, 0.3vh);
+  border-right-width: max(2px, 0.3vh);
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 0 0;
+}
+
+.middleLine {
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+  width: 100%;
+  border-style: solid;
+}
+
+.middleDot,
+.penaltyDot {
+  height: 0.2vh;
+  width: 0.2vh;
+  min-height: calc(0.2 / 98 * 752px);
+  min-width: calc(0.2 / 98 * 752px);
+  background: white;
+  border-radius: 50%;
+  border-style: solid;
+}
+
+.penaltyDot.bottom {
+  bottom: calc(12 / 110 * 100%);
+  position: absolute;
+}
+
+.penaltyDot.top {
+  top: calc(12 / 110 * 100%);
+  position: absolute;
+}
+
+.middleDot {
+  left: 50%;
+  position: absolute;
+}
+
+.tactical {
+  display: none;
+}
+
+.vertical1,
+.vertical2 {
+  border-left-width: 2px;
+  border-right-width: 2px;
+  border-left-style: dashed;
+  border-right-style: dashed;
+  position: absolute;
+}
+
+.vertical1 {
+  width: calc(44 / 82.5 * (0.75 * 88vh));
+  height: 100%;
+  min-width: calc(44 / 82.5 * 0.75 * 88 / 98 * 752px);
+}
+
+.vertical2 {
+  width: calc(20 / 110 * 88vh);
+  height: 100%;
+  min-width: calc(20 / 110 * 88 / 98 * 752px);
+}
+
+.horizontal1,
+.horizontal2,
+.horizontal3,
+.horizontal4 {
+  position: absolute;
+}
+
+.horizontal1,
+.horizontal2 {
+  border-top-width: 2px;
+  border-bottom-width: 2px;
+  border-top-style: dashed;
+  border-bottom-style: dashed;
+  width: calc(19.25 / 82.5 * (0.75 * 88vh));
+  height: calc(40 / 110 * 88vh);
+  min-height: calc(40 / 110 * 88 / 98 * 752px);
+  min-width: calc(19.25 / 82.5 * (0.75 * 88 / 98 * 752px));
+}
+
+.horizontal1 {
+  left: 0;
+}
+
+.horizontal2 {
+  right: 0;
+}
+
+.horizontal3 {
+  width: 100%;
+  height: calc(18 / 110 * 88vh);
+  min-height: calc(18 / 110 * 88 / 98 * 752px);
+  bottom: 0;
+  border-top-width: 2px;
+  border-top-style: dashed;
+}
+
+.horizontal4 {
+  width: 100%;
+  height: calc(18 / 110 * 88vh);
+  min-height: calc(18 / 110 * 88 / 98 * 752px);
+  top: 0;
+  border-bottom-width: 2px;
+  border-bottom-style: dashed;
+}
+
+.text-container {
+  color: white;
+  z-index: 2;
+}
+
+.formation-label {
+  position: absolute;
+  left: 8%;
+  top: 2%;
+  width: 100%;
+  font-size: max(1.8vh, 80%);
+}
+
+.circle,
+.oppoCircle {
+  position: absolute;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  width: max(calc(32 / 900 * 98vh), calc(32 / 900 * 752px));
+  height: max(calc(32 / 900 * 98vh), calc(32 / 900 * 752px));
+  transition: transform 1.2s cubic-bezier(0.2, 1, 1, 1);
+}
+
+.circleStyle,
+.oppoCircleStyle {
+  width: 100%;
+  height: 100%;
+}
+
+.circle {
+  display: flex;
+  z-index: 2;
+}
+
+.oppoCircle {
+  display: none;
+  z-index: 1;
+}
+
+.circleColor,
+.circleColorGK,
+.oppoCircleColor,
+.oppoCircleColorGK {
+  position: absolute;
+  border-radius: 50%;
+  text-align: center;
+  border-width: max(0.25vh, 2px);
+}
+
+.circleColor,
+.circleColorGK {
+  border-style: solid;
+  border-color: #ffffff;
+  z-index: 6;
+}
+
+.circleColor {
+  background-color: red;
+}
+
+.circleColorGK {
+  background-color: #0186e1;
+}
+
+.oppoCircleColor {
+  border-style: solid;
+  border-color: #000000;
+  background-color: #006631;
+  display: none;
+  z-index: 2;
+}
+
+.oppoCircleColorGK {
+  border-style: solid;
+  border-color: #ffffff;
+  background-color: #ffd700;
+  display: none;
+  z-index: 2;
+}
+
+.circle-number {
+  margin-block-start: 0;
+  color: white;
+  position: absolute;
+  font-weight: bold;
+  font-family: "Bebas Neue";
+  text-align: center;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+.circle-number-font-large {
+  font-size: max(calc(0.6 * 32 / 900 * 98vh), 16px);
+}
+
+.circle > .circle-number {
+  z-index: 6;
+}
+
+.oppoCircle > .circle-number {
+  z-index: 2;
+}
+
+.output-container,
+.oppo-output-container {
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+}
+
+.oppo-output-container {
+  z-index: 2;
+}
+
+.startingStyleOne {
+  bottom: min(-2.5vh, -20px);
+  background-color: #ffffff;
+  z-index: 7;
+}
+
+.secondStyleOne {
+  bottom: min(-5vh, -40px);
+  opacity: 0.9;
+  background-color: #c8c8c8;
+  z-index: 6;
+}
+
+.startingStyleTwo,
+.secondStyleTwo {
+  position: absolute;
+  font-size: max(1.5vh, 85%);
+  font-family: "Exo", sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  text-shadow: 0.5px 0.5px 5px black, 0px 0px 3px black;
+}
+
+.startingStyleTwo {
+  color: #ffffff;
+  bottom: min(-2.1vh, -20px);
+  z-index: 1;
+}
+
+.secondStyleTwo {
+  color: #cfcfcf;
+  font-style: italic;
+  bottom: min(-4.2vh, -36px);
+  z-index: 1;
+}
+
+.greenButton {
+  margin-top: 10px; /* Sesuaikan dengan nilai yang diinginkan */
+  margin-right: 10px; /* Sesuaikan dengan nilai yang diinginkan */
+  padding: 1%;
+  background-color: #017d3e;
+  color: white;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  font-size: 75%;
+  border-radius: 4px;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.3s ease;
+  height: auto;
+}
+.greenButton:hover {
+  background-color: #45a049;
+}
+.greenButton:active {
+  transform: translateY(1px);
+}
+.button-container {
+  min-height: 2vh;
+  display: flex;
+  align-self: center;
+  grid-area: 4 / 1 / 5 / 2;
+}
+
+.button-pitch-container {
+  display: block;
+  position: absolute;
+  top: 5%;
+  left: 1.5%;
+  z-index: 2;
+}
+
+.substitutes-container {
+  display: flex;
+  flex-direction: row; /* Change to row to make it horizontal */
+  align-items: center;
+  justify-content: space-around; /* Adjust as needed */
+  margin-top: 20px;
+}
+
+.player.substitute {
+  width: 80px;
+  height: 80px;
+  background-color: #000;
+  margin-right: 10px; /* Adjust the margin between substitute players */
+  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.player.substitute:hover {
+  background-color: #ff0000; /* Change background color on hover to red */
+}
+
+.substitute .starter-position {
+  text-align: center;
+}
+
+.substitute .starter-position p {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+}
+
+.substitutes-title {
+  text-align: center;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.substitutes-title h2 {
+  color: #fff;
+  font-size: 24px; /* Adjust the font size as needed */
+  font-weight: bold;
+}
